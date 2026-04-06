@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASLLY CONTRACTORS LIMITED | Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        :root { 
+            --primary-yellow: #facc15; 
+            --dark-brown: #451a03; 
+        }
+        
+        .tailwind-ready * { font-family: 'Inter', system_ui, sans-serif; }
+        .logo-font { font-family: 'Playfair Display', sans-serif; }
+
+        .gallery-img {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            object-fit: cover;
+            cursor: pointer;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.08);
+            filter: brightness(1.15);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2);
+        }
+
+        .masonry {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .masonry { column-count: 2; }
+        }
+
+        @media (min-width: 1024px) {
+            .masonry { column-count: 3; }
+        }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+        }
+
+        /* Lightbox */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        #lightbox img {
+            max-width: 95%;
+            max-height: 95vh;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .close-btn:hover {
+            transform: rotate(90deg);
+            color: #facc15;
+        }
+
+        /* WhatsApp Quote Button Style */
+        .quote-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #25D366;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+        
+        .quote-btn:hover {
+            background: #20c05c;
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+        
+        .quote-btn img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+        
+        .section-wrapper {
+            margin-bottom: 60px;
+        }
+        
+        .section-header-custom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #facc15;
+            padding-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .section-header-custom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+
+        /* Hero Background with back4.jpeg */
+        .hero-bg-gallery {
+            background-image: linear-gradient(rgba(69, 26, 3, 0.75), rgba(69, 26, 3, 0.85)), 
+                              url('pictures/back4.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-bg-gallery {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body class="tailwind-ready">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="bg-[#451a03] text-white sticky top-0 z-50 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center py-5">
+                <div class="flex items-center gap-3">
+                    <img src="pictures/logo.png" alt="ASLLY CONTRACTORS LIMITED" class="h-12 w-auto">
+                    <div>
+                        <h1 class="logo-font text-3xl tracking-tighter leading-none">
+                            <span class="text-[#facc15]">ASLLY</span> <span class="text-white">CONTRACTORS</span>
+                        </h1>
+                        <p class="text-[#facc15] text-xs -mt-1 tracking-[2px] font-medium">LIMITED</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="index.html" class="hover:text-[#facc15] transition-colors flex items-center gap-1"><i class="fas fa-home"></i> HOME</a>
+                    <a href="about.html" class="hover:text-[#facc15] transition-colors">ABOUT US</a>
+                    <a href="services.html" class="hover:text-[#facc15] transition-colors">SERVICES</a>
+                    <a href="projects.html" class="hover:text-[#facc15] transition-colors">PROJECTS</a>
+                    <a href="gallery.html" class="text-[#facc15] font-semibold">GALLERY</a>
+                    <a href="contact.html" class="hover:text-[#facc15] transition-colors">CONTACT</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="mailto:asslycontractors19@gmail.com" class="bg-[#facc15] hover:bg-yellow-300 text-[#451a03] px-6 py-3 rounded-2xl font-semibold text-sm flex items-center gap-2 transition-all">
+                        <i class="fas fa-envelope"></i> <span class="hidden sm:inline">GET IN TOUCH</span>
+                    </a>
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-[#facc15]"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-[#451a03] border-t border-[#facc15]/20">
+            <div class="px-6 py-6 flex flex-col gap-5 text-sm font-medium">
+                <a href="index.html" class="hover:text-[#facc15]">HOME</a>
+                <a href="about.html" class="hover:text-[#facc15]">ABOUT US</a>
+                <a href="services.html" class="hover:text-[#facc15]">SERVICES</a>
+                <a href="projects.html" class="hover:text-[#facc15]">PROJECTS</a>
+                <a href="gallery.html" class="text-[#facc15] font-semibold">GALLERY</a>
+                <a href="contact.html" class="hover:text-[#facc15]">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER with back4.jpeg background -->
+    <header class="hero-bg-gallery min-h-[60vh] md:min-h-[75vh] lg:min-h-screen flex items-center text-white relative">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold logo-font">Photo Gallery</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl text-[#facc15] mt-4">Our work speaks for itself</p>
+            <p class="text-white/80 text-lg mt-4 max-w-2xl">Browse through our completed projects. Click on any image to enlarge. Request a quote for similar work via WhatsApp!</p>
+        </div>
+    </header>
+    
+    <div class="max-w-7xl mx-auto px-6 py-16">
+
+        <!-- ROAD CONSTRUCTION -->
+        <div class="section-wrapper">
+            <div class="section-header-custom">
+                <h2 class="text-4xl font-bold text-[#451a03]">Road Construction</h2>
+                <a href="https://wa.me/254707840355?text=Hello%20ASLLY%20Contractors%2C%20I%20would%20like%20to%20request%20a%20quotation%20for%20ROAD%20CONSTRUCTION%20services.%20Please%20share%20details." 
+                   target="_blank" 
+                   class="quote-btn">
+                    <img src="pictures/whatsapp.png" alt="WhatsApp" class="w-5 h-5 object-contain">
+                    Request Quotation for Road Works
+                </a>
+            </div>
+            <div class="masonry">
+                <div class="masonry-item"><img src="pictures/download (1).jpg" alt="Road grader" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download.jpg" alt="Asphalt rolling" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Gera-Moua Road Project.jpg" alt="Road compaction" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/civil engineeringconstruction.jpg" alt="Road surveying" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (2).jpg" alt="Road formwork" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+            </div>
+        </div>
+
+        <!-- BUILDING CONSTRUCTION & GYPSUM -->
+        <div class="section-wrapper">
+            <div class="section-header-custom">
+                <h2 class="text-4xl font-bold text-[#451a03]">Building Construction & Interiors</h2>
+                <a href="https://wa.me/254707840355?text=Hello%20ASLLY%20Contractors%2C%20I%20would%20like%20to%20request%20a%20quotation%20for%20BUILDING%20CONSTRUCTION%20and%20INTERIORS%20services.%20Please%20share%20details." 
+                   target="_blank" 
+                   class="quote-btn">
+                    <img src="pictures/whatsapp.png" alt="WhatsApp" class="w-5 h-5 object-contain">
+                    Request Quotation for Building & Interiors
+                </a>
+            </div>
+            <div class="masonry">
+                <div class="masonry-item"><img src="pictures/peter_house_decoration on Instagram_ _📌PETER….jpg" alt="Gypsum ceiling" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/All types of Gypsum and POP Work done.jpg" alt="Multi-level gypsum ceiling" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/gypsum work.jpg" alt="LED gypsum TV wall" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Call_ Whatsapp_ 055-7274240 For Gypsum Partition….jpg" alt="Gypsum partition" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Gypsum works.jpg" alt="Ceiling installation team" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (3).jpg" alt="Floor tiling" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (4).jpg" alt="Marble staircase" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (5).jpg" alt="Glass office partition" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+            </div>
+        </div>
+
+        <!-- CABRO & PAVING WORKS -->
+        <div class="section-wrapper">
+            <div class="section-header-custom">
+                <h2 class="text-4xl font-bold text-[#451a03]">Cabro & Paving Works</h2>
+                <a href="https://wa.me/254707840355?text=Hello%20ASLLY%20Contractors%2C%20I%20would%20like%20to%20request%20a%20quotation%20for%20CABRO%20and%20PAVING%20works.%20Please%20share%20details." 
+                   target="_blank" 
+                   class="quote-btn">
+                    <img src="pictures/whatsapp.png" alt="WhatsApp" class="w-5 h-5 object-contain">
+                    Request Quotation for Cabro & Paving
+                </a>
+            </div>
+            <div class="masonry">
+                <div class="masonry-item"><img src="pictures/download (30).jpg" alt="Red and black cabro" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (28).jpg" alt="Hexagonal cabro paving" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (29).jpg" alt="White and red residential paving" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (27).jpg" alt="Grey hexagonal paving" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Landscaping Ideas.jpg" alt="Cabro with landscaping" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (31).jpg" alt="Residential cabro courtyard" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (32).jpg" alt="Paved walkway" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+            </div>
+        </div>
+
+        <!-- OFFICE FURNITURE & INTERIORS -->
+        <div class="section-wrapper">
+            <div class="section-header-custom">
+                <h2 class="text-4xl font-bold text-[#451a03]">Office Furniture & Interiors</h2>
+                <a href="https://wa.me/254707840355?text=Hello%20ASLLY%20Contractors%2C%20I%20would%20like%20to%20request%20a%20quotation%20for%20OFFICE%20FURNITURE%20and%20INTERIORS.%20Please%20share%20details." 
+                   target="_blank" 
+                   class="quote-btn">
+                    <img src="pictures/whatsapp.png" alt="WhatsApp" class="w-5 h-5 object-contain">
+                    Request Quotation for Office Furniture
+                </a>
+            </div>
+            <div class="masonry">
+                <!-- Desks -->
+                <div class="masonry-item"><img src="pictures/download (15).jpg" alt="L-shaped executive desk" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (17).jpg" alt="Wooden office desk" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (16).jpg" alt="Modern L-shaped desk" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (20).jpg" alt="White office desk in workshop" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (23).jpg" alt="Dark wood executive desk" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (25).jpg" alt="L-shaped light wood desk" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (26).jpg" alt="L-shaped workshop desk" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (6).jpg" alt="Wooden desk setup" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (7).jpg" alt="Modern executive desk" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (14).jpg" alt="Premium L-shaped desk" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                
+                <!-- Chairs -->
+                <div class="masonry-item"><img src="pictures/download (24).jpg" alt="Brown leather executive chair" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Office desk and chair @13,800_ Call_Whatsapp 0746536061_.jpg" alt="Black desk and chair" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Executive office study desk.jpg" alt="Black mesh office chair" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Wat is inbegrepen Stijl_ Modern Producttype….jpg" alt="Black mesh chair" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Contemporary stylish multifunctional office chair….jpg" alt="Ergonomic mesh chair" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Mesh office chairs @5,500 each_ Call_Whatsapp 0746536061_.jpg" alt="Set of mesh chairs" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Swivel office chair @7,900_ Call_Whatsapp 0746536061_.jpg" alt="Black swivel chair" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Ergonomic office chairs @14,500 each_ Call_Whatsapp 0746536061_.jpg" alt="Pair of ergonomic chairs" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Swivel office chair @8,000_ Call_Whatsapp 0746536061_.jpg" alt="Black mesh chair outdoors" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Office chair @7,000_ Call_Whatsapp 0746536061_.jpg" alt="Black visitor chair" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                
+                <!-- Reception & Waiting -->
+                <div class="masonry-item"><img src="pictures/Reception table.jpg" alt="Modern reception desk" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (11).jpg" alt="Luxury executive office" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (9).jpg" alt="Marble reception desk" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (10).jpg" alt="Curved black reception desk" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (12).jpg" alt="Office waiting area with sofas" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/download (8).jpg" alt="Modern reception desk" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Small Black Spa Salon Beauty Nail Office Modern Reception Desk With Led Light.jpg" alt="Curved reception with LED" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/4-seater Cushioned Stainless Steel Waiting Chairs KDKB273 Reception Waiting Chairs Row Chair Benches.jpg" alt="Green waiting chairs" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Stainless Steel - Airport Seating Alliance.jpg" alt="Stainless steel waiting chairs" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Visitors office chairs 6,800 each_ Call_Whatsapp 0746536061_.jpg" alt="Visitor chairs" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Visitors office chairs @2,500 each_ Call_Whatsapp 0746536061_.jpg" alt="Black visitor chairs" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                
+                <!-- Additional Interiors -->
+                <div class="masonry-item"><img src="pictures/download (13).jpg" alt="Modern office interior" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/من اعمالنا في التصميم.jpg" alt="Modern office design" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/Altuntop Kuruyemiş Ofisi.jpg" alt="Modern meeting office" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/A premium boss table crafted from high-quality….jpg" alt="Executive boss desk" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+                <div class="masonry-item"><img src="pictures/General Dentist Rockville MD.jpg" alt="Professional office" class="gallery-img w-full rounded-3xl shadow-xl" onclick="openLightbox(this)"></div>
+            </div>
+        </div>
+
+        <!-- CUSTOM QUOTE NOTE -->
+        <div class="mt-12 text-center">
+            <div class="inline-block bg-[#451a03] text-white px-8 py-6 rounded-3xl">
+                <p class="text-[#facc15] font-semibold mb-2">
+                    <img src="pictures/whatsapp.png" alt="WhatsApp" class="w-6 h-6 object-contain inline-block mr-2">
+                    Need a Custom Quote?
+                </p>
+                <p class="text-sm">Contact us directly on WhatsApp for any specific requirements not listed above</p>
+                <a href="https://wa.me/254707840355?text=Hello%20ASLLY%20Contractors%2C%20I%20would%20like%20to%20request%20a%20custom%20quotation%20for%20my%20project.%20Please%20assist." 
+                   target="_blank" 
+                   class="inline-flex items-center gap-2 mt-4 bg-[#25D366] hover:bg-[#20c05c] text-white px-6 py-3 rounded-full font-semibold transition-all">
+                    <img src="pictures/whatsapp.png" alt="WhatsApp" class="w-5 h-5 object-contain">
+                    Chat with Us on WhatsApp
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" onclick="if(event.target === this) closeLightbox()">
+        <span class="close-btn" onclick="closeLightbox()">×</span>
+        <img id="lightbox-image" src="" alt="">
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#451a03] text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="pictures/logo.png" alt="ASLLY" class="h-12 w-auto">
+                        <div>
+                            <h2 class="logo-font text-3xl tracking-tighter"><span class="text-[#facc15]">ASLLY</span> CONTRACTORS</h2>
+                            <p class="text-[#facc15] text-sm tracking-widest">LIMITED</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm">Professional contractors delivering excellence in construction across Kenya.</p>
+                </div>
+                <div>
+                    <h3 class="text-[#facc15] font-semibold text-lg mb-5">Quick Links</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="index.html" class="hover:text-[#facc15]">Home</a></li>
+                        <li><a href="about.html" class="hover:text-[#facc15]">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-[#facc15]">Services</a></li>
+                        <li><a href="projects.html" class="hover:text-[#facc15]">Projects</a></li>
+                        <li><a href="gallery.html" class="hover:text-[#facc15]">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-[#facc15] font-semibold text-lg mb-5">Services</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li>Road Construction</li>
+                        <li>Building Works</li>
+                        <li>Cabro Paving</li>
+                        <li>Gypsum & Interiors</li>
+                        <li>Office Furniture</li>
+                        <li>Many more construction services</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-[#facc15] font-semibold text-lg mb-5">Contact</h3>
+                    <p class="text-sm text-gray-300">asslycontractors19@gmail.com</p>
+                    <p class="text-sm text-gray-300 mt-2">0707 840 355 / 0722 914 249</p>
+                    <p class="text-sm text-gray-300 mt-2">Nairobi, Kenya</p>
+                </div>
+            </div>
+            <div class="border-t border-[#facc15]/20 mt-16 pt-8 text-center text-xs text-gray-400">
+                © 2026 ASLLY CONTRACTORS LIMITED. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-image');
+            lightboxImg.src = img.src;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'visible';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") closeLightbox();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About ASLLY CONTRACTORS LIMITED - Kenyan construction company">
+    <title>ASLLY CONTRACTORS LIMITED | About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        :root {
+            --primary-yellow: #facc15;
+            --accent-red: #b91c1c;
+            --dark-brown: #451a03;
+        }
+        .tailwind-ready * { font-family: 'Inter', system_ui, sans-serif; }
+        .logo-font { font-family: 'Playfair Display', sans-serif; }
+        
+        /* Hero Background with back1.png */
+        .hero-bg-about { 
+            background-image: linear-gradient(rgba(69, 26, 3, 0.75), rgba(69, 26, 3, 0.85)), 
+                              url('pictures/back1.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-bg-about {
+                background-attachment: scroll;
+            }
+        }
+        
+        /* Why Choose Us Card Styles */
+        .why-card {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .why-card:hover {
+            transform: translateY(-8px);
+            border-bottom-color: #facc15;
+        }
+        .quality-icon {
+            background: linear-gradient(135deg, #facc15 0%, #eab308 100%);
+        }
+    </style>
+</head>
+<body class="tailwind-ready">
+
+    <!-- NAVBAR -->
+    <nav class="bg-[#451a03] text-white sticky top-0 z-50 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center py-5">
+                <div class="flex items-center gap-3">
+                    <img src="pictures/logo.png" alt="ASLLY CONTRACTORS LIMITED" class="h-12 w-auto">
+                    <div>
+                        <h1 class="logo-font text-3xl tracking-tighter leading-none">
+                            <span class="text-[#facc15]">ASLLY</span> <span class="text-white">CONTRACTORS</span>
+                        </h1>
+                        <p class="text-[#facc15] text-xs -mt-1 tracking-[2px] font-medium">LIMITED</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="index.html" class="hover:text-[#facc15] transition-colors">HOME</a>
+                    <a href="about.html" class="hover:text-[#facc15] transition-colors flex items-center gap-1 active text-[#facc15] font-semibold">
+                        <i class="fas fa-info-circle"></i> ABOUT US
+                    </a>
+                    <a href="services.html" class="hover:text-[#facc15] transition-colors">SERVICES</a>
+                    <a href="projects.html" class="hover:text-[#facc15] transition-colors">PROJECTS</a>
+                    <a href="gallery.html" class="hover:text-[#facc15] transition-colors">GALLERY</a>
+                    <a href="contact.html" class="hover:text-[#facc15] transition-colors">CONTACT</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="mailto:asslycontractors19@gmail.com" class="bg-[#facc15] hover:bg-yellow-300 text-[#451a03] px-6 py-3 rounded-2xl font-semibold text-sm flex items-center gap-2 transition-all">
+                        <i class="fas fa-envelope"></i> 
+                        <span class="hidden sm:inline">GET IN TOUCH</span>
+                    </a>
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-[#facc15]">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-[#451a03] border-t border-[#facc15]/30 px-6 py-6">
+            <div class="flex flex-col gap-6 text-lg">
+                <a href="index.html" class="hover:text-[#facc15]">🏠 HOME</a>
+                <a href="about.html" class="hover:text-[#facc15]">📋 ABOUT US</a>
+                <a href="services.html" class="hover:text-[#facc15]">🔧 SERVICES</a>
+                <a href="projects.html" class="hover:text-[#facc15]">🏗️ PROJECTS</a>
+                <a href="gallery.html" class="hover:text-[#facc15]">📸 GALLERY</a>
+                <a href="contact.html" class="hover:text-[#facc15]">📞 CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO with back1.png background -->
+    <header class="hero-bg-about min-h-[60vh] md:min-h-[75vh] lg:min-h-screen flex items-center text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold logo-font tracking-tighter">About ASLLY CONTRACTORS LIMITED</h1>
+            <p class="text-xl md:text-2xl text-[#facc15] mt-4">Proudly Kenyan • NCA Registered • Delivering Excellence Since Day One</p>
+        </div>
+    </header>
+
+    <!-- Rest of the content remains the same -->
+    <div class="max-w-7xl mx-auto px-6 py-16">
+        <div class="grid md:grid-cols-12 gap-16">
+            <!-- Left Content -->
+            <div class="md:col-span-7">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#451a03] mb-8">Our Story</h2>
+                <p class="text-lg leading-relaxed text-[#451a03]/80 mb-8">
+                    ASLLY CONTRACTORS LIMITED is a fully registered Road, Building and Water Construction company 
+                    under the Companies Act, the Ministry of Roads and Public Works, and the National Construction Authority (NCA). 
+                    All directors are Kenyan citizens. Our operational base is in Eldoret, Kenya.
+                </p>
+                <p class="text-lg leading-relaxed text-[#451a03]/80">
+                    We work across public and private sectors, undertake transport contracts, hire out machines and equipment, 
+                    and supply building/construction materials. We also engage in general supplies including office stationery, 
+                    medical equipment, and promotional advertising.
+                </p>
+
+                <h3 class="text-3xl font-semibold mt-16 mb-6 text-[#451a03]">Company Mission</h3>
+                <div class="bg-[#fffbeb] border-l-8 border-[#facc15] p-8 italic text-xl leading-relaxed">
+                    “Our mission is to offer high quality construction services, engaging specialists for each specialized work 
+                    of construction with the ultimate goal of our client's satisfaction…”
+                </div>
+
+                <h3 class="text-3xl font-semibold mt-16 mb-8">Guiding Principles</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex gap-4 bg-white shadow rounded-3xl p-6">
+                        <span class="text-5xl text-[#facc15]">01</span>
+                        <div>Sustainable earnings and value creation for all stakeholders</div>
+                    </div>
+                    <div class="flex gap-4 bg-white shadow rounded-3xl p-6">
+                        <span class="text-5xl text-[#facc15]">02</span>
+                        <div>Respect for human rights and operating within applicable laws</div>
+                    </div>
+                    <div class="flex gap-4 bg-white shadow rounded-3xl p-6">
+                        <span class="text-5xl text-[#facc15]">03</span>
+                        <div>Entrepreneurial spirit through decentralized decision-making</div>
+                    </div>
+                    <div class="flex gap-4 bg-white shadow rounded-3xl p-6">
+                        <span class="text-5xl text-[#facc15]">04</span>
+                        <div>Positive balance of economic, social and environmental benefits</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Info -->
+            <div class="md:col-span-5 bg-white shadow-2xl rounded-3xl p-10 h-fit sticky top-8">
+                <h4 class="uppercase text-[#b91c1c] text-sm tracking-widest mb-4">Company Information</h4>
+                <div class="space-y-6 text-[#451a03]">
+                    <div class="flex justify-between"><span class="font-medium">Name</span><span class="font-semibold">ASLLY CONTRACTORS LIMITED</span></div>
+                    <div class="flex justify-between"><span class="font-medium">Registered Office</span><span class="font-semibold">ELDORET</span></div>
+                    <div class="flex justify-between"><span class="font-medium">P.O. Box</span><span class="font-semibold">8606-30100</span></div>
+                    <div class="flex justify-between">
+                        <span class="font-medium">Email</span>
+                        <span class="font-semibold">
+                            <a href="mailto:asslycontractors19@gmail.com" class="hover:text-[#facc15]">asslycontractors19@gmail.com</a>
+                        </span>
+                    </div>
+                    <div class="flex justify-between"><span class="font-medium">Mobile</span><span class="font-semibold">0707 840 355 / 0722 914 249</span></div>
+                    <div class="flex justify-between"><span class="font-medium">Head Office</span><span class="font-semibold">64 ARCADE, ELDORET</span></div>
+                </div>
+                <a href="contact.html" class="mt-10 block w-full text-center bg-[#facc15] hover:bg-yellow-300 text-[#451a03] py-5 rounded-3xl font-semibold">GET IN TOUCH TODAY</a>
+            </div>
+        </div>
+
+        <!-- WHY CHOOSE US SECTION -->
+        <div class="mt-24">
+            <div class="text-center mb-12">
+                <span class="text-[#b91c1c] uppercase tracking-widest text-sm font-semibold">Why Partner With Us</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#451a03] mt-2">Why Choose ASLLY CONTRACTORS?</h2>
+                <div class="w-24 h-1 bg-[#facc15] mx-auto mt-4"></div>
+                <p class="text-[#451a03]/70 text-lg mt-4 max-w-2xl mx-auto">We combine experience, expertise, and excellence to deliver superior construction solutions</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="why-card bg-white rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-all">
+                    <div class="quality-icon w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-certificate text-4xl text-[#451a03]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#451a03] mb-3">NCA Registered & Fully Compliant</h3>
+                    <p class="text-[#451a03]/70 text-sm leading-relaxed">
+                        Officially registered with the National Construction Authority (NCA) and Ministry of Roads & Public Works. 
+                        Fully tax-compliant with all statutory requirements met.
+                    </p>
+                    <div class="mt-4 inline-flex items-center gap-1 text-[#b91c1c] text-sm font-medium">
+                        <i class="fas fa-check-circle"></i> Verified Contractor
+                    </div>
+                </div>
+
+                <div class="why-card bg-white rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-all">
+                    <div class="quality-icon w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-building text-4xl text-[#451a03]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#451a03] mb-3">Proven Government Track Record</h3>
+                    <p class="text-[#451a03]/70 text-sm leading-relaxed">
+                        Successfully delivered multi-million shilling projects for Mandera, Garissa, Wajir, and other county 
+                        governments with 100% completion rate.
+                    </p>
+                    <div class="mt-4 inline-flex items-center gap-1 text-[#b91c1c] text-sm font-medium">
+                        <i class="fas fa-trophy"></i> 50+ Projects Completed
+                    </div>
+                </div>
+
+                <div class="why-card bg-white rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-all">
+                    <div class="quality-icon w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-4xl text-[#451a03]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#451a03] mb-3">Experienced Team & Quality Workmanship</h3>
+                    <p class="text-[#451a03]/70 text-sm leading-relaxed">
+                        Skilled engineers, technicians, and craftsmen dedicated to delivering superior workmanship. 
+                        We engage specialists for every specialized construction work.
+                    </p>
+                    <div class="mt-4 inline-flex items-center gap-1 text-[#b91c1c] text-sm font-medium">
+                        <i class="fas fa-hard-hat"></i> Expert Workforce
+                    </div>
+                </div>
+
+                <div class="why-card bg-white rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-all">
+                    <div class="quality-icon w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-clock text-4xl text-[#451a03]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#451a03] mb-3">Timely Delivery & Client Satisfaction</h3>
+                    <p class="text-[#451a03]/70 text-sm leading-relaxed">
+                        Commitment to on-time project completion without compromising quality. 
+                        Our mission is centered on exceeding client expectations and ensuring satisfaction.
+                    </p>
+                    <div class="mt-4 inline-flex items-center gap-1 text-[#b91c1c] text-sm font-medium">
+                        <i class="fas fa-smile"></i> 100% Client Focus
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="contact.html" class="inline-flex items-center gap-3 bg-[#facc15] hover:bg-yellow-300 text-[#451a03] px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:scale-105">
+                    <i class="fas fa-phone-alt"></i>
+                    Request a Consultation Today
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#451a03] text-white pt-16">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-y-12">
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-3 mb-6">
+                    <img src="pictures/logo.png" alt="ASLLY CONTRACTORS LIMITED" class="h-10 w-auto">
+                    <h2 class="logo-font text-4xl tracking-tighter">
+                        <span class="text-[#facc15]">ASLLY</span> CONTRACTORS LIMITED
+                    </h2>
+                </div>
+                <p class="text-white/70 max-w-xs">P.O. Box 8606-30100, Eldoret, Kenya<br>Head Office: 64 Arcade, Eldoret</p>
+                <div class="flex gap-6 mt-10">
+                    <a href="https://facebook.com" target="_blank" class="hover:text-[#facc15]"><img src="pictures/facebook.png" alt="Facebook" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://instagram.com" target="_blank" class="hover:text-[#facc15]"><img src="pictures/instagram.png" alt="Instagram" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://linkedin.com" target="_blank" class="hover:text-[#facc15]"><img src="pictures/linkedin.png" alt="LinkedIn" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://x.com" target="_blank" class="hover:text-[#facc15]"><img src="pictures/twitter.png" alt="X" class="w-7 h-7 object-contain" /></a>
+                    <a href="mailto:asslycontractors19@gmail.com" class="hover:text-[#facc15]"><img src="pictures/gmail.png" alt="Gmail" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://wa.me/254707840355" target="_blank" class="hover:text-[#facc15]"><img src="pictures/whatsapp.png" alt="WhatsApp" class="w-7 h-7 object-contain" /></a>
+                </div>
+                <p class="text-xs text-white/40 mt-8">© 2026 ASLLY CONTRACTORS LIMITED • All Rights Reserved</p>
+            </div>
+            <div class="md:col-span-2">
+                <h5 class="uppercase text-[#facc15] text-sm mb-4">Quick Links</h5>
+                <ul class="space-y-3 text-white/70">
+                    <li><a href="about.html" class="hover:text-white">Company Profile</a></li>
+                    <li><a href="services.html" class="hover:text-white">Our Services</a></li>
+                    <li><a href="projects.html" class="hover:text-white">Past Works</a></li>
+                    <li><a href="documents.html" class="hover:text-white">Documents</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2">
+                <h5 class="uppercase text-[#facc15] text-sm mb-4">Contact Us</h5>
+                <div class="space-y-4">
+                    <a href="tel:0707840355" class="flex items-center gap-3 hover:text-[#facc15]"><i class="fas fa-phone"></i> 0707 840 355</a>
+                    <a href="tel:0722914249" class="flex items-center gap-3 hover:text-[#facc15]"><i class="fas fa-phone"></i> 0722 914 249</a>
+                    <a href="mailto:asslycontractors19@gmail.com" class="flex items-center gap-3 hover:text-[#facc15]">
+                        <i class="fas fa-envelope"></i> asslycontractors19@gmail.com
+                    </a>
+                </div>
+            </div>
+            <div class="md:col-span-3">
+                <h5 class="uppercase text-[#facc15] text-sm mb-4">We are NCA Registered</h5>
+                <div class="flex items-center gap-8 bg-white/10 rounded-3xl p-6">
+                    <div class="text-center"><i class="fas fa-certificate text-5xl text-[#facc15]"></i><p class="text-xs mt-2">Company Reg. Cert.</p></div>
+                    <div class="text-center"><i class="fas fa-id-card text-5xl text-[#facc15]"></i><p class="text-xs mt-2">PIN &amp; CR12</p></div>
+                    <div class="text-center"><i class="fas fa-file-contract text-5xl text-[#facc15]"></i><p class="text-xs mt-2">Tax Compliant</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-xs text-white/30 py-8 border-t border-white/10 mt-12">
+            Vibrant website designed exclusively for ASLLY CONTRACTORS LIMITED • March 2026
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden')
+        }
+    </script>
+
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/254707840355" target="_blank" rel="noreferrer" class="group inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#25D366] text-white shadow-2xl hover:scale-105 transition-transform" aria-label="Chat on WhatsApp">
+            <img src="pictures/whatsapp.png" alt="WhatsApp" class="w-8 h-8" />
+        </a>
+    </div>
+</body>
+</html>

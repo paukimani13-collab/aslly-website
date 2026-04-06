@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASLLY CONTRACTORS LIMITED | Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        :root { 
+            --primary-yellow: #facc15; 
+            --accent-red: #b91c1c; 
+            --dark-brown: #451a03; 
+        }
+        .tailwind-ready * { font-family: 'Inter', system_ui, sans-serif; }
+        .logo-font { font-family: 'Playfair Display', sans-serif; }
+
+        /* Hero Background with back2.png */
+        .hero-bg-projects {
+            background-image: linear-gradient(rgba(69, 26, 3, 0.75), rgba(69, 26, 3, 0.85)), 
+                              url('pictures/back2.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-bg-projects {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body class="tailwind-ready">
+
+    <!-- NAVBAR with Logo -->
+    <nav class="bg-[#451a03] text-white sticky top-0 z-50 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center py-5">
+                <div class="flex items-center gap-3">
+                    <img src="pictures/logo.png" alt="ASLLY CONTRACTORS LIMITED" class="h-12 w-auto">
+                    <div>
+                        <h1 class="logo-font text-3xl tracking-tighter leading-none">
+                            <span class="text-[#facc15]">ASLLY</span> <span class="text-white">CONTRACTORS</span>
+                        </h1>
+                        <p class="text-[#facc15] text-xs -mt-1 tracking-[2px] font-medium">LIMITED</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="index.html" class="hover:text-[#facc15]">HOME</a>
+                    <a href="about.html" class="hover:text-[#facc15]">ABOUT US</a>
+                    <a href="services.html" class="hover:text-[#facc15]">SERVICES</a>
+                    <a href="projects.html" class="hover:text-[#facc15] flex items-center gap-1 active text-[#facc15] font-semibold">
+                        <i class="fas fa-briefcase"></i> PROJECTS
+                    </a>
+                    <a href="gallery.html" class="hover:text-[#facc15]">GALLERY</a>
+                    <a href="contact.html" class="hover:text-[#facc15]">CONTACT</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="mailto:asslycontractors19@gmail.com" 
+                       class="bg-[#facc15] hover:bg-yellow-300 text-[#451a03] px-6 py-3 rounded-2xl font-semibold text-sm flex items-center gap-2 transition-all">
+                        <i class="fas fa-envelope"></i> 
+                        <span class="hidden sm:inline">GET IN TOUCH</span>
+                    </a>
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-[#facc15]">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-[#451a03] border-t border-[#facc15]/30 px-6 py-6">
+            <div class="flex flex-col gap-6 text-lg">
+                <a href="index.html" class="hover:text-[#facc15]">🏠 HOME</a>
+                <a href="about.html" class="hover:text-[#facc15]">📋 ABOUT US</a>
+                <a href="services.html" class="hover:text-[#facc15]">🔧 SERVICES</a>
+                <a href="projects.html" class="hover:text-[#facc15]">🏗️ PROJECTS</a>
+                <a href="gallery.html" class="hover:text-[#facc15]">📸 GALLERY</a>
+                <a href="contact.html" class="hover:text-[#facc15]">📞 CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO with back2.png background -->
+    <header class="hero-bg-projects min-h-[60vh] md:min-h-[75vh] lg:min-h-screen flex items-center text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold logo-font">Our Major Projects</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl text-[#facc15] mt-4">Delivered with excellence across Kenyan counties</p>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-6 py-16">
+        <div class="grid lg:grid-cols-2 gap-10">
+
+            <!-- ==================== PROJECT 1 - MANDERA COUNTY ==================== -->
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <div class="h-64 bg-cover bg-center relative" 
+                     style="background-image: url('pictures/mandera.county.PNG');">
+                    <div class="absolute top-6 left-6 bg-[#facc15] text-[#451a03] px-5 py-2 rounded-3xl text-sm font-bold">MANDERA COUNTY</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-2">Construction of Raised 400M Canal, Pump House & Lister Engine Pump Set – Khalalio</h3>
+                    <p class="text-[#b91c1c] font-medium">KSh 27,995,922 • Awarded Dec 2020 • Completed May 2021</p>
+                    <p class="mt-4 text-sm text-[#451a03]/70">Award & Completion Certificates available in company profile.</p>
+                </div>
+            </div>
+
+            <!-- ==================== PROJECT 2 - GARISSA COUNTY ==================== -->
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <div class="h-64 bg-cover bg-center relative" 
+                     style="background-image: url('pictures/Garissa.couty.JPEG');">
+                    <div class="absolute top-6 left-6 bg-[#facc15] text-[#451a03] px-5 py-2 rounded-3xl text-sm font-bold">GARISSA COUNTY</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-2">Rehabilitation of Wildlife Drinking Pan at Jalango, Lagdera Sub-County</h3>
+                    <p class="text-[#b91c1c] font-medium">KSh 26,954,249 • Awarded Mar 2020 • Completed Nov 2020</p>
+                </div>
+            </div>
+
+            <!-- ==================== PROJECT 3 - MANDERA COUNTY ==================== -->
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <div class="h-64 bg-cover bg-center relative" 
+                     style="background-image: url('pictures/mandera.county.PNG');">
+                    <div class="absolute top-6 left-6 bg-[#facc15] text-[#451a03] px-5 py-2 rounded-3xl text-sm font-bold">MANDERA COUNTY</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-2">Tarmacking of Busle – Soko Mbuzi Road to Bitumen Standard (+2.8KM)</h3>
+                    <p class="text-[#b91c1c] font-medium">KSh 75,649,173 • Awarded Dec 2019 • Completed Sep 2019</p>
+                </div>
+            </div>
+
+            <!-- ==================== PROJECT 4 - WAJIR COUNTY ==================== -->
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <div class="h-64 bg-cover bg-center relative" 
+                     style="background-image: url('pictures/wajir.couty.JPEG');">
+                    <div class="absolute top-6 left-6 bg-[#facc15] text-[#451a03] px-5 py-2 rounded-3xl text-sm font-bold">WAJIR COUNTY</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-2">Grading of 5KM Road – Habaswein-China Road, Wajir South</h3>
+                    <p class="text-[#b91c1c] font-medium">KSh 13,254,000 • Awarded Jun 2020 • Completed Sep 2020</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER with Logo -->
+    <footer class="bg-[#451a03] text-white pt-16">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-y-12">
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-3 mb-6">
+                    <img src="pictures/logo.png" alt="ASLLY CONTRACTORS LIMITED" class="h-10 w-auto">
+                    <h2 class="logo-font text-4xl tracking-tighter">
+                        <span class="text-[#facc15]">ASLLY</span> CONTRACTORS LIMITED
+                    </h2>
+                </div>
+                <p class="text-white/70 max-w-xs">P.O. Box 8606-30100, Eldoret, Kenya<br>Head Office: 64 Arcade, Eldoret</p>
+                <div class="flex gap-6 mt-10">
+                    <a href="https://facebook.com" target="_blank" class="hover:text-[#facc15]"><img src="pictures/facebook.png" alt="Facebook" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://instagram.com" target="_blank" class="hover:text-[#facc15]"><img src="pictures/instagram.png" alt="Instagram" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://linkedin.com" target="_blank" class="hover:text-[#facc15]"><img src="pictures/linkedin.png" alt="LinkedIn" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://x.com" target="_blank" class="hover:text-[#facc15]"><img src="pictures/twitter.png" alt="X" class="w-7 h-7 object-contain" /></a>
+                    <a href="mailto:asslycontractors19@gmail.com" class="hover:text-[#facc15]"><img src="pictures/gmail.png" alt="Gmail" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://wa.me/254707840355" target="_blank" class="hover:text-[#facc15]"><img src="pictures/whatsapp.png" alt="WhatsApp" class="w-7 h-7 object-contain" /></a>
+                </div>
+                <p class="text-xs text-white/40 mt-8">© 2026 ASLLY CONTRACTORS LIMITED • All Rights Reserved</p>
+            </div>
+           
+            <div class="md:col-span-2">
+                <h5 class="uppercase text-[#facc15] text-sm mb-4">Quick Links</h5>
+                <ul class="space-y-3 text-white/70">
+                    <li><a href="about.html" class="hover:text-white">Company Profile</a></li>
+                    <li><a href="services.html" class="hover:text-white">Our Services</a></li>
+                    <li><a href="projects.html" class="hover:text-white">Past Works</a></li>
+                    <li><a href="documents.html" class="hover:text-white">Documents</a></li>
+                </ul>
+            </div>
+           
+            <div class="md:col-span-2">
+                <h5 class="uppercase text-[#facc15] text-sm mb-4">Contact Us</h5>
+                <div class="space-y-4">
+                    <a href="tel:0707840355" class="flex items-center gap-3 hover:text-[#facc15]">
+                        <i class="fas fa-phone"></i> 0707 840 355
+                    </a>
+                    <a href="tel:0722914249" class="flex items-center gap-3 hover:text-[#facc15]">
+                        <i class="fas fa-phone"></i> 0722 914 249
+                    </a>
+                    <a href="mailto:asslycontractors19@gmail.com" class="flex items-center gap-3 hover:text-[#facc15]">
+                        <i class="fas fa-envelope"></i> asslycontractors19@gmail.com
+                    </a>
+                </div>
+            </div>
+           
+            <div class="md:col-span-3">
+                <h5 class="uppercase text-[#facc15] text-sm mb-4">We are NCA Registered</h5>
+                <div class="flex items-center gap-8 bg-white/10 rounded-3xl p-6">
+                    <div class="text-center">
+                        <i class="fas fa-certificate text-5xl text-[#facc15]"></i>
+                        <p class="text-xs mt-2">Company Reg. Cert.</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-id-card text-5xl text-[#facc15]"></i>
+                        <p class="text-xs mt-2">PIN &amp; CR12</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-file-contract text-5xl text-[#facc15]"></i>
+                        <p class="text-xs mt-2">Tax Compliant</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="text-center text-xs text-white/30 py-8 border-t border-white/10 mt-12">
+            Vibrant website designed exclusively for ASLLY CONTRACTORS LIMITED • March 2026
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() { 
+            document.getElementById('mobileMenu').classList.toggle('hidden'); 
+        }
+    </script>
+</body>
+</html>

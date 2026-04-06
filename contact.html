@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASLLY CONTRACTORS LIMITED | Contact & Quotations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        :root { --primary-yellow: #facc15; --accent-red: #b91c1c; --dark-brown: #451a03; }
+        .tailwind-ready * { font-family: 'Inter', system_ui, sans-serif; }
+        .logo-font { font-family: 'Playfair Display', sans-serif; }
+        
+        .hero-bg-contact {
+            background-image: linear-gradient(rgba(69, 26, 3, 0.75), rgba(69, 26, 3, 0.85)), 
+                              url('pictures/back5.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-bg-contact {
+                background-attachment: scroll;
+            }
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.2);
+            border-color: #facc15;
+        }
+        
+        .form-tab {
+            transition: all 0.3s ease;
+        }
+        .form-tab.active {
+            background: #facc15;
+            color: #451a03;
+        }
+        .form-tab:not(.active) {
+            background: #451a03;
+            color: white;
+        }
+        .form-tab:not(.active):hover {
+            background: #6b2e05;
+        }
+    </style>
+</head>
+<body class="tailwind-ready">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="bg-[#451a03] text-white sticky top-0 z-50 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center py-5">
+                <div class="flex items-center gap-3">
+                    <img src="pictures/logo.png" alt="ASLLY CONTRACTORS LIMITED" class="h-12 w-auto">
+                    <div>
+                        <h1 class="logo-font text-3xl tracking-tighter leading-none">
+                            <span class="text-[#facc15]">ASLLY</span> <span class="text-white">CONTRACTORS</span>
+                        </h1>
+                        <p class="text-[#facc15] text-xs -mt-1 tracking-[2px] font-medium">LIMITED</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="index.html" class="hover:text-[#facc15] transition-colors"><i class="fas fa-home"></i> HOME</a>
+                    <a href="about.html" class="hover:text-[#facc15] transition-colors">ABOUT US</a>
+                    <a href="services.html" class="hover:text-[#facc15] transition-colors">SERVICES</a>
+                    <a href="projects.html" class="hover:text-[#facc15] transition-colors">PROJECTS</a>
+                    <a href="gallery.html" class="hover:text-[#facc15] transition-colors">GALLERY</a>
+                    <a href="contact.html" class="text-[#facc15] font-semibold">CONTACT</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="mailto:asslycontractors19@gmail.com" class="bg-[#facc15] hover:bg-yellow-300 text-[#451a03] px-6 py-3 rounded-2xl font-semibold text-sm flex items-center gap-2 transition-all">
+                        <i class="fas fa-envelope"></i> <span class="hidden sm:inline">GET IN TOUCH</span>
+                    </a>
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-[#facc15]"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-[#451a03] border-t border-[#facc15]/20">
+            <div class="px-6 py-6 flex flex-col gap-5 text-sm font-medium">
+                <a href="index.html" class="hover:text-[#facc15]">HOME</a>
+                <a href="about.html" class="hover:text-[#facc15]">ABOUT US</a>
+                <a href="services.html" class="hover:text-[#facc15]">SERVICES</a>
+                <a href="projects.html" class="hover:text-[#facc15]">PROJECTS</a>
+                <a href="gallery.html" class="hover:text-[#facc15]">GALLERY</a>
+                <a href="contact.html" class="text-[#facc15] font-semibold">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-bg-contact min-h-[50vh] flex items-center text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold logo-font">Get In Touch</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl text-[#facc15] mt-4">Request a Quotation or Send a Message</p>
+            <p class="text-white/80 text-lg mt-4 max-w-2xl">Tell us about your project and we'll get back to you within 24 hours</p>
+        </div>
+    </header>
+    
+    <div class="max-w-7xl mx-auto px-6 py-16">
+        
+        <!-- Form Tabs -->
+        <div class="flex justify-center mb-10">
+            <div class="inline-flex rounded-2xl overflow-hidden shadow-lg">
+                <button id="tabGeneral" onclick="showForm('general')" class="form-tab active px-8 py-4 font-semibold text-lg transition-all">
+                    <i class="fas fa-envelope mr-2"></i> Send Message
+                </button>
+                <button id="tabQuotation" onclick="showForm('quotation')" class="form-tab px-8 py-4 font-semibold text-lg transition-all">
+                    <i class="fas fa-file-invoice-dollar mr-2"></i> Request Quotation
+                </button>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-16">
+            <!-- Contact Details (Left Side) -->
+            <div>
+                <h3 class="text-3xl font-bold mb-8 text-[#451a03]">Contact Information</h3>
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <i class="fas fa-map-marker-alt text-4xl text-[#facc15]"></i>
+                        <div>
+                            <p class="font-semibold text-[#451a03]">Head Office</p>
+                            <p class="text-[#451a03]/70">64 Arcade, Eldoret, Kenya</p>
+                            <p class="text-[#451a03]/70">P.O. Box 8606-30100</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <i class="fas fa-phone text-4xl text-[#facc15]"></i>
+                        <div>
+                            <p class="font-semibold text-[#451a03]">Mobile</p>
+                            <p><a href="tel:0707840355" class="text-[#451a03]/70 hover:text-[#facc15]">0707 840 355</a> / <a href="tel:0722914249" class="text-[#451a03]/70 hover:text-[#facc15]">0722 914 249</a></p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <i class="fas fa-envelope text-4xl text-[#facc15]"></i>
+                        <div>
+                            <p class="font-semibold text-[#451a03]">Email</p>
+                            <a href="mailto:asslycontractors19@gmail.com" class="text-[#451a03]/70 hover:text-[#facc15]">asslycontractors19@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <i class="fab fa-whatsapp text-4xl text-[#facc15]"></i>
+                        <div>
+                            <p class="font-semibold text-[#451a03]">WhatsApp</p>
+                            <a href="https://wa.me/254707840355" target="_blank" class="text-[#451a03]/70 hover:text-[#facc15]">Chat with us on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12">
+                    <h4 class="uppercase text-sm tracking-widest text-[#b91c1c] mb-4">Connect with us</h4>
+                    <div class="flex gap-6">
+                        <a href="https://facebook.com" target="_blank"><img src="pictures/facebook.png" alt="Facebook" class="w-7 h-7 object-contain hover:scale-110 transition-transform" /></a>
+                        <a href="https://instagram.com" target="_blank"><img src="pictures/instagram.png" alt="Instagram" class="w-7 h-7 object-contain hover:scale-110 transition-transform" /></a>
+                        <a href="https://linkedin.com" target="_blank"><img src="pictures/linkedin.png" alt="LinkedIn" class="w-7 h-7 object-contain hover:scale-110 transition-transform" /></a>
+                        <a href="https://x.com" target="_blank"><img src="pictures/twitter.png" alt="X" class="w-7 h-7 object-contain hover:scale-110 transition-transform" /></a>
+                        <a href="mailto:asslycontractors19@gmail.com"><img src="pictures/gmail.png" alt="Gmail" class="w-7 h-7 object-contain hover:scale-110 transition-transform" /></a>
+                        <a href="https://wa.me/254707840355" target="_blank"><img src="pictures/whatsapp.png" alt="WhatsApp" class="w-7 h-7 object-contain hover:scale-110 transition-transform" /></a>
+                    </div>
+                </div>
+                
+                <div class="mt-12 bg-[#fffbeb] rounded-3xl p-6 border border-[#facc15]/30">
+                    <h4 class="font-bold text-[#451a03] mb-3 flex items-center gap-2">
+                        <i class="fas fa-clock text-[#facc15]"></i>
+                        Office Hours
+                    </h4>
+                    <div class="space-y-2 text-[#451a03]/80">
+                        <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                        <p>Saturday: 9:00 AM - 1:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forms (Right Side) -->
+            <div>
+                <!-- General Contact Form -->
+                <div id="generalForm" class="bg-white shadow-2xl rounded-3xl p-10">
+                    <h3 class="text-2xl font-bold text-[#451a03] mb-6">Send us a Message</h3>
+                    <p class="text-[#451a03]/60 text-sm mb-6">Fill in the form below and we'll get back to you within 24 hours.</p>
+                    
+                    <form action="https://formsubmit.co/asslycontractors19@gmail.com" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_subject" value="New Contact Message from ASLLY CONTRACTORS Website">
+                        <input type="text" name="_honey" style="display:none">
+                        
+                        <div class="grid grid-cols-2 gap-6">
+                            <input type="text" name="name" placeholder="Your Name" required class="border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none transition-all">
+                            <input type="email" name="email" placeholder="Email Address" required class="border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none transition-all">
+                        </div>
+                        <input type="tel" name="phone" placeholder="Phone Number" class="w-full mt-6 border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none transition-all">
+                        <input type="text" name="subject" placeholder="Subject" required class="w-full mt-6 border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none transition-all">
+                        <textarea name="message" placeholder="Your Message" rows="5" required class="w-full mt-6 border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none resize-none transition-all"></textarea>
+                        
+                        <button type="submit" class="mt-8 w-full bg-[#facc15] hover:bg-yellow-300 text-[#451a03] font-semibold py-5 rounded-3xl text-lg transition-all hover:scale-105 flex items-center justify-center gap-2">
+                            <i class="fas fa-paper-plane"></i> SEND MESSAGE
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Quotation Request Form -->
+                <div id="quotationForm" class="bg-white shadow-2xl rounded-3xl p-10 hidden">
+                    <h3 class="text-2xl font-bold text-[#451a03] mb-6">Request a Quotation</h3>
+                    <p class="text-[#451a03]/60 text-sm mb-6">Tell us about your project and we'll send you a detailed quotation.</p>
+                    
+                    <form action="https://formsubmit.co/asslycontractors19@gmail.com" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_subject" value="NEW QUOTATION REQUEST from ASLLY CONTRACTORS Website">
+                        <input type="text" name="_honey" style="display:none">
+                        
+                        <div class="grid grid-cols-2 gap-6">
+                            <input type="text" name="name" placeholder="Full Name" required class="border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none transition-all">
+                            <input type="email" name="email" placeholder="Email Address" required class="border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none transition-all">
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-6 mt-6">
+                            <input type="tel" name="phone" placeholder="Phone Number" required class="border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none transition-all">
+                            <input type="text" name="location" placeholder="Project Location" required class="border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none transition-all">
+                        </div>
+                        
+                        <!-- Service Category Dropdown -->
+                        <select name="service_category" required class="w-full mt-6 border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none transition-all bg-white">
+                            <option value="" disabled selected>Select Service Category</option>
+                            <option value="Road Construction">Road Construction</option>
+                            <option value="Building Construction">Building Construction</option>
+                            <option value="Water Works">Water Works</option>
+                            <option value="Cabro & Gabion Works">Cabro & Gabion Works</option>
+                            <option value="Gypsum & Acoustic Ceiling">Gypsum & Acoustic Ceiling</option>
+                            <option value="Office Furniture & Interiors">Office Furniture & Interiors</option>
+                            <option value="Electrical & Plumbing">Electrical & Plumbing</option>
+                            <option value="General Supplies">General Supplies</option>
+                            <option value="Other">Other (Specify below)</option>
+                        </select>
+                        
+                        <input type="text" name="other_service" placeholder="If Other, please specify" class="w-full mt-6 border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none transition-all">
+                        
+                        <!-- Project Details -->
+                        <textarea name="project_description" placeholder="Describe your project (size, scope, requirements, etc.)" rows="4" required class="w-full mt-6 border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none resize-none transition-all"></textarea>
+                        
+                        <div class="grid grid-cols-2 gap-6 mt-6">
+                            <input type="text" name="estimated_budget" placeholder="Estimated Budget (KSh)" class="border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none transition-all">
+                            <input type="text" name="timeline" placeholder="Expected Timeline" placeholder="e.g., 3 months" class="border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none transition-all">
+                        </div>
+                        
+                        <!-- How did they hear about us -->
+                        <select name="heard_from" class="w-full mt-6 border border-[#facc15]/30 focus:border-[#facc15] rounded-2xl px-6 py-5 outline-none transition-all bg-white">
+                            <option value="" disabled selected>How did you hear about us?</option>
+                            <option value="Google Search">Google Search</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="LinkedIn">LinkedIn</option>
+                            <option value="Word of Mouth">Word of Mouth</option>
+                            <option value="Reference">Reference from client</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        
+                        <button type="submit" class="mt-8 w-full bg-[#facc15] hover:bg-yellow-300 text-[#451a03] font-semibold py-5 rounded-3xl text-lg transition-all hover:scale-105 flex items-center justify-center gap-2">
+                            <i class="fas fa-file-invoice-dollar"></i> REQUEST QUOTATION
+                        </button>
+                        
+                        <p class="text-center text-xs text-[#451a03]/50 mt-4">We'll respond within 24 hours with a detailed quotation</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#451a03] text-white pt-16">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-y-12">
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-3 mb-6">
+                    <img src="pictures/logo.png" alt="ASLLY CONTRACTORS LIMITED" class="h-10 w-auto">
+                    <h2 class="logo-font text-4xl tracking-tighter"><span class="text-[#facc15]">ASLLY</span> CONTRACTORS LIMITED</h2>
+                </div>
+                <p class="text-white/70 max-w-xs">P.O. Box 8606-30100, Eldoret, Kenya<br>Head Office: 64 Arcade, Eldoret</p>
+                <div class="flex gap-6 mt-10">
+                    <a href="https://facebook.com" target="_blank"><img src="pictures/facebook.png" alt="Facebook" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://instagram.com" target="_blank"><img src="pictures/instagram.png" alt="Instagram" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://linkedin.com" target="_blank"><img src="pictures/linkedin.png" alt="LinkedIn" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://x.com" target="_blank"><img src="pictures/twitter.png" alt="X" class="w-7 h-7 object-contain" /></a>
+                    <a href="mailto:asslycontractors19@gmail.com"><img src="pictures/gmail.png" alt="Gmail" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://wa.me/254707840355" target="_blank"><img src="pictures/whatsapp.png" alt="WhatsApp" class="w-7 h-7 object-contain" /></a>
+                </div>
+                <p class="text-xs text-white/40 mt-8">© 2026 ASLLY CONTRACTORS LIMITED • All Rights Reserved</p>
+            </div>
+            <div class="md:col-span-2">
+                <h5 class="uppercase text-[#facc15] text-sm mb-4">Quick Links</h5>
+                <ul class="space-y-3 text-white/70">
+                    <li><a href="about.html" class="hover:text-white">Company Profile</a></li>
+                    <li><a href="services.html" class="hover:text-white">Our Services</a></li>
+                    <li><a href="projects.html" class="hover:text-white">Past Works</a></li>
+                    <li><a href="documents.html" class="hover:text-white">Documents</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2">
+                <h5 class="uppercase text-[#facc15] text-sm mb-4">Contact Us</h5>
+                <div class="space-y-4">
+                    <a href="tel:0707840355" class="flex items-center gap-3 hover:text-[#facc15]"><i class="fas fa-phone"></i> 0707 840 355</a>
+                    <a href="tel:0722914249" class="flex items-center gap-3 hover:text-[#facc15]"><i class="fas fa-phone"></i> 0722 914 249</a>
+                    <a href="mailto:asslycontractors19@gmail.com" class="flex items-center gap-3 hover:text-[#facc15]"><i class="fas fa-envelope"></i> asslycontractors19@gmail.com</a>
+                </div>
+            </div>
+            <div class="md:col-span-3">
+                <h5 class="uppercase text-[#facc15] text-sm mb-4">We are NCA Registered</h5>
+                <div class="flex items-center gap-8 bg-white/10 rounded-3xl p-6">
+                    <div class="text-center"><i class="fas fa-certificate text-5xl text-[#facc15]"></i><p class="text-xs mt-2">Company Reg.</p></div>
+                    <div class="text-center"><i class="fas fa-id-card text-5xl text-[#facc15]"></i><p class="text-xs mt-2">NCA1 & NCA7</p></div>
+                    <div class="text-center"><i class="fas fa-file-contract text-5xl text-[#facc15]"></i><p class="text-xs mt-2">Tax Compliant</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-xs text-white/30 py-8 border-t border-white/10 mt-12">
+            Vibrant website designed exclusively for ASLLY CONTRACTORS LIMITED • March 2026
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/254707840355" target="_blank" class="group inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#25D366] text-white shadow-2xl hover:scale-105 transition-transform">
+            <img src="pictures/whatsapp.png" alt="WhatsApp" class="w-8 h-8" />
+        </a>
+    </div>
+
+    <script>
+        function toggleMobileMenu() { 
+            document.getElementById('mobileMenu').classList.toggle('hidden'); 
+        }
+        
+        function showForm(type) {
+            const generalForm = document.getElementById('generalForm');
+            const quotationForm = document.getElementById('quotationForm');
+            const tabGeneral = document.getElementById('tabGeneral');
+            const tabQuotation = document.getElementById('tabQuotation');
+            
+            if (type === 'general') {
+                generalForm.classList.remove('hidden');
+                quotationForm.classList.add('hidden');
+                tabGeneral.classList.add('active');
+                tabQuotation.classList.remove('active');
+            } else {
+                generalForm.classList.add('hidden');
+                quotationForm.classList.remove('hidden');
+                tabQuotation.classList.add('active');
+                tabGeneral.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>

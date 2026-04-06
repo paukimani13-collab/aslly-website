@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASLLY CONTRACTORS LIMITED | Certifications & Licenses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        :root { 
+            --primary-yellow: #facc15; 
+            --dark-brown: #451a03; 
+        }
+        
+        .tailwind-ready * { font-family: 'Inter', system_ui, sans-serif; }
+        .logo-font { font-family: 'Playfair Display', sans-serif; }
+
+        .cert-card {
+            transition: all 0.3s ease;
+        }
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        .hero-bg-cert {
+            background: linear-gradient(135deg, #451a03 0%, #6b2e05 50%, #451a03 100%);
+            position: relative;
+        }
+        .hero-bg-cert::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23facc15' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        
+        .view-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #facc15;
+            color: #451a03;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .view-btn:hover {
+            background: #eab308;
+            transform: scale(1.02);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #22c55e;
+            color: white;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 20px;
+            margin-left: 8px;
+        }
+
+        /* Modal styles for PDF viewer */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            overflow: auto;
+        }
+        .pdf-modal-content {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            margin: 2% auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .pdf-modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            background: rgba(0,0,0,0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .close-modal:hover {
+            color: #facc15;
+            background: rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body class="tailwind-ready">
+
+    <!-- PDF Modal -->
+    <div id="pdfModal" class="pdf-modal">
+        <span class="close-modal" onclick="closePDFModal()">&times;</span>
+        <div class="pdf-modal-content">
+            <iframe id="pdfFrame" src=""></iframe>
+        </div>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="bg-[#451a03] text-white sticky top-0 z-50 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center py-5">
+                <div class="flex items-center gap-3">
+                    <img src="pictures/logo.png" alt="ASLLY CONTRACTORS LIMITED" class="h-12 w-auto">
+                    <div>
+                        <h1 class="logo-font text-3xl tracking-tighter leading-none">
+                            <span class="text-[#facc15]">ASLLY</span> <span class="text-white">CONTRACTORS</span>
+                        </h1>
+                        <p class="text-[#facc15] text-xs -mt-1 tracking-[2px] font-medium">LIMITED</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="index.html" class="hover:text-[#facc15] transition-colors"><i class="fas fa-home"></i> HOME</a>
+                    <a href="about.html" class="hover:text-[#facc15] transition-colors">ABOUT US</a>
+                    <a href="services.html" class="hover:text-[#facc15] transition-colors">SERVICES</a>
+                    <a href="projects.html" class="hover:text-[#facc15] transition-colors">PROJECTS</a>
+                    <a href="gallery.html" class="hover:text-[#facc15] transition-colors">GALLERY</a>
+                    <a href="documents.html" class="text-[#facc15] font-semibold">DOCUMENTS</a>
+                    <a href="contact.html" class="hover:text-[#facc15] transition-colors">CONTACT</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="mailto:asslycontractors19@gmail.com" class="bg-[#facc15] hover:bg-yellow-300 text-[#451a03] px-6 py-3 rounded-2xl font-semibold text-sm flex items-center gap-2 transition-all">
+                        <i class="fas fa-envelope"></i> <span class="hidden sm:inline">GET IN TOUCH</span>
+                    </a>
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-[#facc15]"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-[#451a03] border-t border-[#facc15]/20">
+            <div class="px-6 py-6 flex flex-col gap-5 text-sm font-medium">
+                <a href="index.html" class="hover:text-[#facc15]">HOME</a>
+                <a href="about.html" class="hover:text-[#facc15]">ABOUT US</a>
+                <a href="services.html" class="hover:text-[#facc15]">SERVICES</a>
+                <a href="projects.html" class="hover:text-[#facc15]">PROJECTS</a>
+                <a href="gallery.html" class="hover:text-[#facc15]">GALLERY</a>
+                <a href="documents.html" class="text-[#facc15] font-semibold">DOCUMENTS</a>
+                <a href="contact.html" class="hover:text-[#facc15]">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-bg-cert min-h-[50vh] flex items-center text-white">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold logo-font">Our Certifications & Licenses</h1>
+            <p class="text-xl md:text-2xl text-[#facc15] mt-4">Fully registered and compliant with Kenyan authorities</p>
+            <p class="text-white/80 text-lg mt-4 max-w-2xl">Click on any document to view</p>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-6 py-16">
+
+        <!-- NCA Certifications Section -->
+        <div class="mb-16">
+            <div class="text-center mb-12">
+                <i class="fas fa-certificate text-5xl text-[#facc15] mb-3"></i>
+                <h2 class="text-4xl font-bold text-[#451a03]">National Construction Authority (NCA)</h2>
+                <div class="w-24 h-1 bg-[#facc15] mx-auto mt-4"></div>
+                <p class="text-[#451a03]/70 text-lg mt-4">Official registrations and practicing licenses</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Road Works Certificate of Registration -->
+                <div class="cert-card bg-white rounded-3xl shadow-xl overflow-hidden">
+                    <div class="bg-[#451a03] px-6 py-4 flex justify-between items-center">
+                        <div>
+                            <i class="fas fa-road text-[#facc15] text-2xl mr-2"></i>
+                            <span class="text-white font-semibold">NCA Certificate</span>
+                        </div>
+                        <span class="badge">Valid</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[#451a03] mb-2">Road Works Contractor</h3>
+                        <p class="text-[#451a03]/60 text-sm mb-1">Registration No: 83091/R/0223</p>
+                        <p class="text-[#451a03]/60 text-sm mb-1">Category: NCA7</p>
+                        <p class="text-[#451a03]/70 text-sm mb-4">Valid until: 31/07/2028</p>
+                        <button onclick="viewPDF('documents/Certificate%20of%20registration.pdf')" class="view-btn w-full justify-center">
+                            <i class="fas fa-eye"></i> View Document
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Road Works Practicing License -->
+                <div class="cert-card bg-white rounded-3xl shadow-xl overflow-hidden">
+                    <div class="bg-[#451a03] px-6 py-4 flex justify-between items-center">
+                        <div>
+                            <i class="fas fa-id-card text-[#facc15] text-2xl mr-2"></i>
+                            <span class="text-white font-semibold">NCA License</span>
+                        </div>
+                        <span class="badge">Valid</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[#451a03] mb-2">Road Works - Annual License</h3>
+                        <p class="text-[#451a03]/60 text-sm mb-1">Registration No: 83091/R/0223</p>
+                        <p class="text-[#451a03]/60 text-sm mb-1">Category: NCA7</p>
+                        <p class="text-[#451a03]/70 text-sm mb-4">Valid until: 31/07/2026</p>
+                        <button onclick="viewPDF('documents/road%20work%20practising%20licence.pdf')" class="view-btn w-full justify-center">
+                            <i class="fas fa-eye"></i> View Document
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Building Works Certificate of Registration -->
+                <div class="cert-card bg-white rounded-3xl shadow-xl overflow-hidden">
+                    <div class="bg-[#451a03] px-6 py-4 flex justify-between items-center">
+                        <div>
+                            <i class="fas fa-building text-[#facc15] text-2xl mr-2"></i>
+                            <span class="text-white font-semibold">NCA Certificate</span>
+                        </div>
+                        <span class="badge">Valid</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[#451a03] mb-2">Building Works Contractor</h3>
+                        <p class="text-[#451a03]/60 text-sm mb-1">Registration No: 83091/B/0223</p>
+                        <p class="text-[#451a03]/60 text-sm mb-1">Category: NCA1</p>
+                        <p class="text-[#451a03]/70 text-sm mb-4">Valid until: 31/07/2028</p>
+                        <button onclick="viewPDF('documents/building%20works%20certificate%20of%20registration.pdf')" class="view-btn w-full justify-center">
+                            <i class="fas fa-eye"></i> View Document
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Building Works Practicing License -->
+                <div class="cert-card bg-white rounded-3xl shadow-xl overflow-hidden">
+                    <div class="bg-[#451a03] px-6 py-4 flex justify-between items-center">
+                        <div>
+                            <i class="fas fa-id-card text-[#facc15] text-2xl mr-2"></i>
+                            <span class="text-white font-semibold">NCA License</span>
+                        </div>
+                        <span class="badge">Valid</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[#451a03] mb-2">Building Works - Annual License</h3>
+                        <p class="text-[#451a03]/60 text-sm mb-1">Registration No: 83091/B/0223</p>
+                        <p class="text-[#451a03]/60 text-sm mb-1">Category: NCA1</p>
+                        <p class="text-[#451a03]/70 text-sm mb-4">Valid until: 31/07/2026</p>
+                        <button onclick="viewPDF('documents/building%20works%20practice%20license.pdf')" class="view-btn w-full justify-center">
+                            <i class="fas fa-eye"></i> View Document
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tax Compliance Certificate -->
+                <div class="cert-card bg-white rounded-3xl shadow-xl overflow-hidden">
+                    <div class="bg-[#451a03] px-6 py-4 flex justify-between items-center">
+                        <div>
+                            <i class="fas fa-file-invoice-dollar text-[#facc15] text-2xl mr-2"></i>
+                            <span class="text-white font-semibold">KRA Certificate</span>
+                        </div>
+                        <span class="badge">Valid</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[#451a03] mb-2">Tax Compliance Certificate</h3>
+                        <p class="text-[#451a03]/60 text-sm mb-1">PIN: P051818490Z</p>
+                        <p class="text-[#451a03]/60 text-sm mb-1">Certificate No: KRAELD1525400925</p>
+                        <p class="text-[#451a03]/70 text-sm mb-4">Valid until: 10/11/2026</p>
+                        <button onclick="viewPDF('documents/Tax%20Compliance%20Certificate.pdf')" class="view-btn w-full justify-center">
+                            <i class="fas fa-eye"></i> View Document
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Nairobi Business Permit -->
+                <div class="cert-card bg-white rounded-3xl shadow-xl overflow-hidden">
+                    <div class="bg-[#451a03] px-6 py-4 flex justify-between items-center">
+                        <div>
+                            <i class="fas fa-city text-[#facc15] text-2xl mr-2"></i>
+                            <span class="text-white font-semibold">County Permit</span>
+                        </div>
+                        <span class="badge">Valid</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[#451a03] mb-2">Nairobi Business Permit</h3>
+                        <p class="text-[#451a03]/60 text-sm mb-1">Nairobi City County</p>
+                        <p class="text-[#451a03]/60 text-sm mb-1">Single Business Permit</p>
+                        <p class="text-[#451a03]/70 text-sm mb-4">Trade License</p>
+                        <button onclick="viewPDF('documents/Nairobi%20business%20permit.pdf')" class="view-btn w-full justify-center">
+                            <i class="fas fa-eye"></i> View Document
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Company Profile Section -->
+        <div class="mb-16">
+            <div class="text-center mb-12">
+                <i class="fas fa-building text-5xl text-[#facc15] mb-3"></i>
+                <h2 class="text-4xl font-bold text-[#451a03]">Company Profile</h2>
+                <div class="w-24 h-1 bg-[#facc15] mx-auto mt-4"></div>
+                <p class="text-[#451a03]/70 text-lg mt-4">Complete company overview and credentials</p>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <div class="cert-card bg-white rounded-3xl shadow-xl overflow-hidden">
+                    <div class="bg-[#451a03] px-6 py-4 flex justify-between items-center">
+                        <div>
+                            <i class="fas fa-file-alt text-[#facc15] text-2xl mr-2"></i>
+                            <span class="text-white font-semibold">Company Document</span>
+                        </div>
+                        <span class="badge">Updated 2026</span>
+                    </div>
+                    <div class="p-6 text-center">
+                        <i class="fas fa-file-pdf text-red-500 text-6xl mb-4"></i>
+                        <h3 class="text-xl font-bold text-[#451a03] mb-2">ASLLY CONTRACTORS LIMITED</h3>
+                        <p class="text-[#451a03]/60 text-sm mb-4">Complete Company Profile including:</p>
+                        <div class="grid grid-cols-2 gap-2 text-sm text-[#451a03]/70 mb-6">
+                            <span>✓ Company Registration</span>
+                            <span>✓ CR12 Certificate</span>
+                            <span>✓ PIN Certificate</span>
+                            <span>✓ Directors' ID Copies</span>
+                            <span>✓ Tax Compliance</span>
+                            <span>✓ Client List</span>
+                            <span>✓ Past Projects</span>
+                            <span>✓ Audited Accounts</span>
+                        </div>
+                        <button onclick="viewPDF('documents/ASLLY%20CONTRACTORS%20COMPANY%20PROFILE%20revised.pdf')" class="view-btn w-full justify-center">
+                            <i class="fas fa-eye"></i> View Company Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="bg-[#fffbeb] rounded-3xl p-10 border border-[#facc15]/30">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold text-[#facc15]">NCA1</div>
+                    <p class="text-[#451a03] font-semibold mt-2">Building Works</p>
+                    <p class="text-[#451a03]/60 text-sm">Highest contractor classification</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-[#facc15]">NCA7</div>
+                    <p class="text-[#451a03] font-semibold mt-2">Road Works</p>
+                    <p class="text-[#451a03]/60 text-sm">Government project eligible</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-[#facc15]">2028</div>
+                    <p class="text-[#451a03] font-semibold mt-2">Valid Registration</p>
+                    <p class="text-[#451a03]/60 text-sm">Fully compliant & renewed</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-[#facc15]">✓</div>
+                    <p class="text-[#451a03] font-semibold mt-2">Tax Compliant</p>
+                    <p class="text-[#451a03]/60 text-sm">KRA certified</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="mt-16 text-center">
+            <h3 class="text-2xl font-bold text-[#451a03] mb-6">Why This Matters</h3>
+            <div class="flex flex-wrap justify-center gap-8">
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Legally registered</div>
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Tax compliant</div>
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Eligible for government tenders</div>
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> NCA1 & NCA7 Certified</div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="mt-16 text-center bg-[#451a03] rounded-3xl p-10 text-white">
+            <h3 class="text-2xl font-bold mb-4">Need verified copies for a tender?</h3>
+            <p class="mb-6 text-white/80">Contact us for officially stamped copies or additional documentation</p>
+            <a href="contact.html" class="inline-flex items-center gap-2 bg-[#facc15] hover:bg-yellow-300 text-[#451a03] px-8 py-4 rounded-2xl font-semibold transition-all">
+                <i class="fas fa-envelope"></i> Request Documents
+            </a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#451a03] text-white pt-16">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-y-12">
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-3 mb-6">
+                    <img src="pictures/logo.png" alt="ASLLY CONTRACTORS LIMITED" class="h-10 w-auto">
+                    <h2 class="logo-font text-4xl tracking-tighter"><span class="text-[#facc15]">ASLLY</span> CONTRACTORS LIMITED</h2>
+                </div>
+                <p class="text-white/70 max-w-xs">P.O. Box 8606-30100, Eldoret, Kenya<br>Head Office: 64 Arcade, Eldoret</p>
+                <div class="flex gap-6 mt-10">
+                    <a href="https://facebook.com" target="_blank"><img src="pictures/facebook.png" alt="Facebook" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://instagram.com" target="_blank"><img src="pictures/instagram.png" alt="Instagram" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://linkedin.com" target="_blank"><img src="pictures/linkedin.png" alt="LinkedIn" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://x.com" target="_blank"><img src="pictures/twitter.png" alt="X" class="w-7 h-7 object-contain" /></a>
+                    <a href="mailto:asslycontractors19@gmail.com"><img src="pictures/gmail.png" alt="Gmail" class="w-7 h-7 object-contain" /></a>
+                    <a href="https://wa.me/254707840355" target="_blank"><img src="pictures/whatsapp.png" alt="WhatsApp" class="w-7 h-7 object-contain" /></a>
+                </div>
+                <p class="text-xs text-white/40 mt-8">© 2026 ASLLY CONTRACTORS LIMITED • All Rights Reserved</p>
+            </div>
+            <div class="md:col-span-2">
+                <h5 class="uppercase text-[#facc15] text-sm mb-4">Quick Links</h5>
+                <ul class="space-y-3 text-white/70">
+                    <li><a href="about.html" class="hover:text-white">Company Profile</a></li>
+                    <li><a href="services.html" class="hover:text-white">Our Services</a></li>
+                    <li><a href="projects.html" class="hover:text-white">Past Works</a></li>
+                    <li><a href="documents.html" class="hover:text-white">Documents</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2">
+                <h5 class="uppercase text-[#facc15] text-sm mb-4">Contact Us</h5>
+                <div class="space-y-4">
+                    <a href="tel:0707840355" class="flex items-center gap-3 hover:text-[#facc15]"><i class="fas fa-phone"></i> 0707 840 355</a>
+                    <a href="tel:0722914249" class="flex items-center gap-3 hover:text-[#facc15]"><i class="fas fa-phone"></i> 0722 914 249</a>
+                    <a href="mailto:asslycontractors19@gmail.com" class="flex items-center gap-3 hover:text-[#facc15]"><i class="fas fa-envelope"></i> asslycontractors19@gmail.com</a>
+                </div>
+            </div>
+            <div class="md:col-span-3">
+                <h5 class="uppercase text-[#facc15] text-sm mb-4">We are NCA Registered</h5>
+                <div class="flex items-center gap-8 bg-white/10 rounded-3xl p-6">
+                    <div class="text-center"><i class="fas fa-certificate text-5xl text-[#facc15]"></i><p class="text-xs mt-2">Company Reg.</p></div>
+                    <div class="text-center"><i class="fas fa-id-card text-5xl text-[#facc15]"></i><p class="text-xs mt-2">NCA1 & NCA7</p></div>
+                    <div class="text-center"><i class="fas fa-file-contract text-5xl text-[#facc15]"></i><p class="text-xs mt-2">Tax Compliant</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-xs text-white/30 py-8 border-t border-white/10 mt-12">
+            Vibrant website designed exclusively for ASLLY CONTRACTORS LIMITED • March 2026
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() { 
+            document.getElementById('mobileMenu').classList.toggle('hidden'); 
+        }
+
+        function viewPDF(filePath) {
+            const modal = document.getElementById('pdfModal');
+            const iframe = document.getElementById('pdfFrame');
+            iframe.src = filePath;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePDFModal() {
+            const modal = document.getElementById('pdfModal');
+            const iframe = document.getElementById('pdfFrame');
+            iframe.src = '';
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePDFModal();
+            }
+        });
+    </script>
+</body>
+</html>
